@@ -1,7 +1,21 @@
 .box
 {
-  height:50%;
-  width: 50%;
+  height: 500px;
+  width: 500px;
+  border-style: solid;
+  border-width: medium;
+}
+.blockHorizontal
+{
+  height:10%;;
+  width: 25%;
+  border-style: solid;
+  border-width: medium;
+}
+.blockVertical
+{
+  height:25%;;
+  width: 10%;
   border-style: solid;
   border-width: medium;
 }
