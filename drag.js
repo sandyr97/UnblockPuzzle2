@@ -18,6 +18,8 @@ let xOffset = 0;
 let yOffset = 0;
 
 let activeObject;
+let activeBlock;
+
 
 //For mobile
 container.addEventListener("touchstart", dragStart, false);
@@ -30,14 +32,17 @@ container.addEventListener("mouseup", dragEnd, false);
 container.addEventListener("mousemove", drag, false);
 
 function dragStart(e) {
-
+    //activeBlock = new block(e.clientX - xOffset, e.clientY - yOffset );
     initialX = e.clientX - xOffset;
     initialY = e.clientY - yOffset;
 
+activeObject = document.getElementById(e.srcElement.id);
+activeObject.initialX = 60;
+activeObject.initialY = 60;
 
+    console.log("initialX",activeObject.initialX);
+    console.log("initialY",activeObject.initialY);
 
-  activeObject = document.getElementById(e.srcElement.id);
-  console.log(activeObject.className);
   if(activeObject.className == "blockHorizontal")
   {
     activeHorizontal = true;
@@ -46,30 +51,28 @@ function dragStart(e) {
   {
     activeVertical = true;
   }
-  console.log(activeObject);
-  //console.log(dragVertical[0]);
-  //console.log(dragHorizontal);
+
 }
 
 function drag(e) {
 
-console.log("activeHorizontal",activeHorizontal);
-console.log("activeVertical",activeVertical);
 
   if (activeHorizontal) {
 
     e.preventDefault();
 
     if (e.type === "touchmove") {
-      currentX = e.pageX - initialX;
+      activeObject.currentX = e.pageX - activeObject.initialX;
+
 
     } else {
-      currentX = e.clientX - initialX;
+      activeObject.currentX = e.clientX - activeObject.initialX;
+
     }
 
-    xOffset = currentX;
+    activeObject.xOffset = activeObject.currentX;
 
-    setTranslate(currentX, 0, activeObject);
+    setTranslate(activeObject.currentX, 0, activeObject);
   }
   else if(activeVertical)
   {
@@ -77,16 +80,17 @@ console.log("activeVertical",activeVertical);
 
     if (e.type === "touchmove") {
 
-      currentY = e.touches[0].clientY - initialY;
+      activeObject.currentY = e.clientY - activeObject.initialY;
+
     } else {
 
-      currentY = e.clientY - initialY;
+      activeObject.currentY = e.clientY - activeObject.initialY;
+
     }
 
 
-    yOffset = currentY;
-    console.log(activeObject);
-    setTranslate(0, currentY, activeObject);
+    activeObject.yOffset = activeObject.currentY;
+    setTranslate(0, activeObject.currentY, activeObject);
   }
 }
 
@@ -95,8 +99,8 @@ function setTranslate(xPos, yPos, el) {
 }
 
 function dragEnd(e) {
-  initialX = currentX;
-  initialY = currentY;
+  activeObject.initialX = activeObject.currentX;
+  activeObject.initialY = activeObject.currentY;
 
   activeHorizontal = false;
   activeVertical = false;
