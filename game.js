@@ -51,32 +51,44 @@ console.log("Type of check:", typeof blockToCheck);
     {
       if(i == exception_i) continue;
 
-      if(!(blockToCheck.Right_Wall < this.blockArray[i].Left_Wall ||
-           blockToCheck.Left_Wall > this.blockArray[i].Right_Wall ||
-           blockToCheck.Bottom_Wall < this.blockArray[i].Top_Wall ||
-           blockToCheck.Top_Wall > this.blockArray[i].Bottom_Wall)){
+      if(!(blockToCheck.Right_Wall <= this.blockArray[i].Left_Wall ||
+           blockToCheck.Left_Wall >= this.blockArray[i].Right_Wall ||
+           blockToCheck.Bottom_Wall <= this.blockArray[i].Top_Wall ||
+           blockToCheck.Top_Wall >= this.blockArray[i].Bottom_Wall)){
             // console.log("Collision Details ---------------");
              console.log("block to check:", blockToCheck);
              console.log("collided block:", this.blockArray[i]);
             //now must get direction of collision.
-            if((blockToCheck.Right_Wall > this.blockArray[i].Left_Wall) && (blockToCheck.Left_Wall <= this.blockArray[i].Left_Wall))
-            {
-              console.log(blockToCheck.Right_Wall, this.blockArray[i].Left_Wall);
 
-              CollisionDirection.RIGHT = true;
-            }
-            else if(!(blockToCheck.Left_Wall > this.blockArray[i].Right_Wall))
+            if(blockToCheck.class == "blockHorizontal")
             {
-              CollisionDirection.LEFT = true;
+              if((blockToCheck.Right_Wall > this.blockArray[i].Left_Wall) && (blockToCheck.Left_Wall <= this.blockArray[i].Left_Wall))
+              {
+                console.log(blockToCheck.Right_Wall, this.blockArray[i].Left_Wall);
+
+                CollisionDirection.RIGHT = true;
+              }
+
+              else if(!(blockToCheck.Left_Wall > this.blockArray[i].Right_Wall))
+              {
+                CollisionDirection.LEFT = true;
+              }
             }
-            else if(!(blockToCheck.Bottom_Wall < this.blockArray[i].Top_Wall))
+            else
             {
-              CollisionDirection.BOTTOM = true;
+              if(!(blockToCheck.Top_Wall > this.blockArray[i].Bottom_Wall))
+              {
+                CollisionDirection.TOP = true;
+              }
+              else if((blockToCheck.Bottom_Wall > this.blockArray[i].Top_Wall) && (blockToCheck.Top_Wall >= this.blockArray[i].Top_Wall))
+              {
+                CollisionDirection.BOTTOM = true;
+              }
             }
-            else if(!(blockToCheck.Top_Wall > this.blockArray[i].Bottom_Wall))
-            {
-              CollisionDirection.TOP = true;
-            }
+
+
+
+
         return true;
       }
     }

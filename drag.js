@@ -42,7 +42,7 @@ let rect = activeObject.getBoundingClientRect();
 
 //Problems with initialX and Y, need to work that out.
 activeObject.initialX = e.clientX - rect.left;
-activeObject.initialY = e.clientY + rect.top/2;
+activeObject.initialY = e.clientY - rect.top/2;
 
 //Create a new block object.
 
@@ -55,7 +55,7 @@ for(let i = 0; i < gameplay.blockArray.length; i++)
     break;
   }
 }
-activeBlock = new block(rect, activeObject.id);
+activeBlock = new block(rect, activeObject.id, activeObject.className);
 gameplay.blockArray.push(activeBlock);
 
     console.log("initialX",activeObject.initialX);
@@ -126,9 +126,24 @@ let collidedBool = false;
       activeObject.currentY = e.clientY - activeObject.initialY;
 
     } else {
-
+//console.log("here");
       activeObject.currentY = e.clientY - activeObject.initialY;
+      if(gameplay.hasCollision(activeBlock))
+      {
+        console.log("Direction:",CollisionDirection);
 
+        if(CollisionDirection.TOP){
+          activeObject.xOffset = activeObject.currentX;
+          setTranslate(0, activeObject.currentY + 5, activeObject);
+        }
+        else if(CollisionDirection.BOTTOM){
+          activeObject.xOffset = activeObject.currentX;
+          setTranslate(0, activeObject.currentY - 5, activeObject);
+        }
+
+        dragEnd(activeObject);
+        //return;
+      }
     }
 
 
