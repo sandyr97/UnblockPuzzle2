@@ -40,6 +40,11 @@ activeObject = document.getElementById(e.srcElement.id);
 activeObject.initialX = 60;
 activeObject.initialY = 60;
 
+//Create a new block object.
+let rect = activeObject.getBoundingClientRect();
+console.log(rect.top, rect.right, rect.bottom, rect.left);
+gameplay.blockArray.push(new block(rect, activeObject.id));
+
     console.log("initialX",activeObject.initialX);
     console.log("initialY",activeObject.initialY);
 
@@ -56,6 +61,7 @@ activeObject.initialY = 60;
 
 function drag(e) {
 
+  //thanks to https://stackoverflow.com/questions/442404/retrieve-the-position-x-y-of-an-html-element
 
   if (activeHorizontal) {
 

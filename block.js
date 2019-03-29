@@ -1,11 +1,9 @@
 class block{
-  constructor(x, y, name) {
-   this.currentX = undefined;
-   this.currentY = undefined;
-   this.initialX = x;
-   this.initialY = y;
-   this.xOffset = 0;
-   this.yOffset = 0;
-   this.name = name;
+  constructor(rect, unique_id) {
+   this.Left_Wall = rect.left;
+   this.Right_Wall = rect.right;
+   this.Top_Wall = rect.top;
+   this.Bottom_Wall = rect.bottom;
+   this.unique_id = unique_id;
  }
 }
