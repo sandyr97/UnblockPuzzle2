@@ -13,19 +13,45 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
 <body>
+  <div class = "center">
+    <h1>Block Bloque</h1>
+    <h4>Statistics/Leaderboard/info here</h4>
 
-<div class = "box" id = "box">
+    <div class = "box" align='center' id = "box">
+      <div class = "blockHorizontal" id = "blockHorizontal" style = "float:left;"></div>
+      <div class = "blockVertical" id = "blockVertical" style = "float:left;"></div>
+      <div class = "blockVertical" id = "blockVertical2" style = "float:left;"></div>
+    </div>
 
-<div class = "blockHorizontal" id = "blockHorizontal" style = "float:left;"></div>
-<div class = "blockVertical" id = "blockVertical" style = "float:left;"></div>
-<div class = "blockVertical" id = "blockVertical2" style = "float:left;"></div>
+    <table>
+      <tr>
+        <th>Username</th>
+        <th>High Score</th>
+      </tr>
+      <tr>
+        <th>Alex</th>
+        <th>30000</th>
+      </tr>
+      <tr>
+        <th>Evan</th>
+        <th>25000</th>
+      </tr>
+      <tr>
+        <th>Sandy</th>
+        <th>27499</th>
+      </tr>
+      <tr>
+        <th>Clay</th>
+        <th>2</th>
+      </tr>
+    </table>
+
+    <!-- the "block" class -->
+    <script src="block.js"></script>
+    <!-- the "game" class -->
+    <script src="game.js"></script>
+    <!-- drag functionality -->
+  <script src="drag.js"></script>
 </div>
-
-<!-- the "block" class -->
-<script src="block.js"></script>
-<!-- the "game" class -->
-<script src="game.js"></script>
-<!-- drag functionality -->
-<script src="drag.js"></script>
 </body>
 </html>
