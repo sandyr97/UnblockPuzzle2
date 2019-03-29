@@ -37,11 +37,15 @@ function dragStart(e) {
     initialY = e.clientY - yOffset;
 
 activeObject = document.getElementById(e.srcElement.id);
-activeObject.initialX = 60;
-activeObject.initialY = 110;
+
+let rect = activeObject.getBoundingClientRect();
+
+//Problems with initialX and Y, need to work that out.
+activeObject.initialX = e.clientX - rect.left;
+activeObject.initialY = e.clientY + rect.top/2;
 
 //Create a new block object.
-let rect = activeObject.getBoundingClientRect();
+
 console.log(rect.top, rect.right, rect.bottom, rect.left);
 for(let i = 0; i < gameplay.blockArray.length; i++)
 {
@@ -71,7 +75,7 @@ gameplay.blockArray.push(activeBlock);
 function drag(e) {
 
   //thanks to https://stackoverflow.com/questions/442404/retrieve-the-position-x-y-of-an-html-element
-
+let collidedBool = false;
   if (activeHorizontal) {
 
     e.preventDefault();
@@ -81,6 +85,7 @@ function drag(e) {
       if(gameplay.hasCollision(activeBlock))
       {
 
+
       //  console.log("Collision!");
         return;
       }
@@ -89,15 +94,28 @@ function drag(e) {
       activeObject.currentX = e.clientX - activeObject.initialX;
       if(gameplay.hasCollision(activeBlock))
       {
-        //console.log("Collision!");
-        console.log("ACTIVE BLOCK:", activeBlock);
-        return;
+        console.log("Direction:",CollisionDirection);
+
+        if(CollisionDirection.RIGHT){
+          activeObject.xOffset = activeObject.currentX;
+          setTranslate(activeObject.currentX - 5, 0, activeObject);
+        }
+        else if(CollisionDirection.LEFT){
+          activeObject.xOffset = activeObject.currentX;
+          setTranslate(activeObject.currentX + 5, 0, activeObject);
+        }
+
+        dragEnd(activeObject);
+        //return;
       }
     }
 
-    activeObject.xOffset = activeObject.currentX;
 
-    setTranslate(activeObject.currentX, 0, activeObject);
+      activeObject.xOffset = activeObject.currentX;
+
+      setTranslate(activeObject.currentX, 0, activeObject);
+
+
   }
   else if(activeVertical)
   {
