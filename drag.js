@@ -38,7 +38,7 @@ function dragStart(e) {
 
 activeObject = document.getElementById(e.srcElement.id);
 activeObject.initialX = 60;
-activeObject.initialY = 60;
+activeObject.initialY = 110;
 
 //Create a new block object.
 let rect = activeObject.getBoundingClientRect();
