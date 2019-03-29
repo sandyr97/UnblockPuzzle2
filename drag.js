@@ -43,7 +43,16 @@ activeObject.initialY = 60;
 //Create a new block object.
 let rect = activeObject.getBoundingClientRect();
 console.log(rect.top, rect.right, rect.bottom, rect.left);
-gameplay.blockArray.push(new block(rect, activeObject.id));
+for(let i = 0; i < gameplay.blockArray.length; i++)
+{
+  if(gameplay.blockArray[i].unique_id == activeObject.id)
+  {
+    gameplay.blockArray.splice(i,1);
+    break;
+  }
+}
+activeBlock = new block(rect, activeObject.id);
+gameplay.blockArray.push(activeBlock);
 
     console.log("initialX",activeObject.initialX);
     console.log("initialY",activeObject.initialY);
@@ -69,11 +78,21 @@ function drag(e) {
 
     if (e.type === "touchmove") {
       activeObject.currentX = e.pageX - activeObject.initialX;
+      if(gameplay.hasCollision(activeBlock))
+      {
 
+      //  console.log("Collision!");
+        return;
+      }
 
     } else {
       activeObject.currentX = e.clientX - activeObject.initialX;
-
+      if(gameplay.hasCollision(activeBlock))
+      {
+        //console.log("Collision!");
+        console.log("ACTIVE BLOCK:", activeBlock);
+        return;
+      }
     }
 
     activeObject.xOffset = activeObject.currentX;
@@ -102,11 +121,14 @@ function drag(e) {
 
 function setTranslate(xPos, yPos, el) {
   el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
+  gameplay.pair(activeBlock, activeObject);
 }
 
 function dragEnd(e) {
   activeObject.initialX = activeObject.currentX;
   activeObject.initialY = activeObject.currentY;
+
+
 
   activeHorizontal = false;
   activeVertical = false;
