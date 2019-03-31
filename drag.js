@@ -1,21 +1,11 @@
 /*
 * Thanks largely in part to the tutorial located at https://www.kirupa.com/html5/drag.htm
 */
-
-
-
-let dragHorizontal = document.querySelectorAll("#blockHorizontal");
-let dragVertical = document.querySelectorAll("#blockVertical");
 let container = document.querySelector("#box");
 
 let activeHorizontal = false;
 let activeVertical = false;
-let currentX;
-let currentY;
-let initialX;
-let initialY;
-let xOffset = 0;
-let yOffset = 0;
+
 
 let activeObject;
 let activeBlock;
@@ -31,22 +21,28 @@ container.addEventListener("mousedown", dragStart, false);
 container.addEventListener("mouseup", dragEnd, false);
 container.addEventListener("mousemove", drag, false);
 
+
+/*
+*@function: dragStart
+*@param: e: the event.
+*@desc: this function starts a drag event.
+* it assigns elements to activeObject and activeBlock.
+* It also determines if the axis of motion will be
+* horizontal or vertical.
+*@return: none.
+*/
 function dragStart(e) {
-    //activeBlock = new block(e.clientX - xOffset, e.clientY - yOffset );
-    initialX = e.clientX - xOffset;
-    initialY = e.clientY - yOffset;
-
+//The object (div) being moved by the user.
 activeObject = document.getElementById(e.srcElement.id);
-
+//The user is not allowed to move the container.
+if(activeObject.className == "box"){return;}
+//The coordinates of the user controlled object.
 let rect = activeObject.getBoundingClientRect();
-
 //Problems with initialX and Y, need to work that out.
 activeObject.initialX = e.clientX - rect.left;
 activeObject.initialY = e.clientY - rect.top/2;
-
 //Create a new block object.
-
-console.log(rect.top, rect.right, rect.bottom, rect.left);
+//NO duplicates. This could be optimized.
 for(let i = 0; i < gameplay.blockArray.length; i++)
 {
   if(gameplay.blockArray[i].unique_id == activeObject.id)
@@ -58,9 +54,7 @@ for(let i = 0; i < gameplay.blockArray.length; i++)
 activeBlock = new block(rect, activeObject.id, activeObject.className);
 gameplay.blockArray.push(activeBlock);
 
-    console.log("initialX",activeObject.initialX);
-    console.log("initialY",activeObject.initialY);
-
+  //horizontal or vertical block type?
   if(activeObject.className == "blockHorizontal")
   {
     activeHorizontal = true;
@@ -71,28 +65,33 @@ gameplay.blockArray.push(activeBlock);
   }
 
 }
-
+/*
+*@function:
+*@param: e: the event.
+*@desc: this function IS the drag event.
+* It moves the player controlled object,
+* meanwhile detecting collisions and acting
+* accordingly.
+*@return: none.
+*/
 function drag(e) {
 
   //thanks to https://stackoverflow.com/questions/442404/retrieve-the-position-x-y-of-an-html-element
-let collidedBool = false;
+
   if (activeHorizontal) {
 
     e.preventDefault();
 
     if (e.type === "touchmove") {
       activeObject.currentX = e.pageX - activeObject.initialX;
-      if(gameplay.hasCollision(activeBlock))
+      if(gameplay.hasCollision(activeBlock, container))
       {
-
-
-      //  console.log("Collision!");
         return;
       }
 
     } else {
       activeObject.currentX = e.clientX - activeObject.initialX;
-      if(gameplay.hasCollision(activeBlock))
+      if(gameplay.hasCollision(activeBlock, container))
       {
         console.log("Direction:",CollisionDirection);
 
@@ -104,9 +103,8 @@ let collidedBool = false;
           activeObject.xOffset = activeObject.currentX;
           setTranslate(activeObject.currentX + 5, 0, activeObject);
         }
-
         dragEnd(activeObject);
-        //return;
+
       }
     }
 
