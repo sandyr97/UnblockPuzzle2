@@ -39,8 +39,18 @@ if(activeObject.className == "box"){return;}
 //The coordinates of the user controlled object.
 let rect = activeObject.getBoundingClientRect();
 //Problems with initialX and Y, need to work that out.
-activeObject.initialX = e.clientX - rect.left;
-activeObject.initialY = e.clientY - rect.top/2;
+//Problems with initialX and Y, need to work that out.
+console.log(e.clientX, e.clientY);
+if(activeObject.initialX == undefined)
+{
+  activeObject.initialX = e.clientX;
+}
+if(activeObject.initialY == undefined)
+{
+    activeObject.initialY = e.clientY;
+}
+//activeObject.initialX = e.clientX - rect.left;
+//activeObject.initialY = e.clientY - rect.top/2;
 //Create a new block object.
 //NO duplicates. This could be optimized.
 for(let i = 0; i < gameplay.blockArray.length; i++)
@@ -103,8 +113,8 @@ function drag(e) {
           activeObject.xOffset = activeObject.currentX;
           setTranslate(activeObject.currentX + 5, 0, activeObject);
         }
-        dragEnd(activeObject);
-
+        dragEnd(e);
+        return;
       }
     }
 
@@ -139,8 +149,8 @@ function drag(e) {
           setTranslate(0, activeObject.currentY - 5, activeObject);
         }
 
-        dragEnd(activeObject);
-        //return;
+        dragEnd(e);
+        return;
       }
     }
 
@@ -156,8 +166,8 @@ function setTranslate(xPos, yPos, el) {
 }
 
 function dragEnd(e) {
-  activeObject.initialX = activeObject.currentX;
-  activeObject.initialY = activeObject.currentY;
+  activeObject.initialX = e.clientX - activeObject.currentX;
+  activeObject.initialY = e.clientY - activeObject.currentY;
 
 
 
