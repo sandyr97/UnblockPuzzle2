@@ -126,7 +126,10 @@ setup(blockArray, level = 1)
 /*
 levelPattern1(blockArray)
 {
-
+  for (let i = 0; i < 5; i++) {
+    blockArray.push(document.createElement("Div"));
+    blockArray[i].setAttribute("id", i);
+  }
 }
 */
 //create the game object.
