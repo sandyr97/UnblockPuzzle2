@@ -28,3 +28,17 @@
 .container{
   padding:40px;
 }
+
+th, td, tr{
+  margin:10px;
+  padding:5px;
+  border: 1px solid black;
+}
+
+table{
+  font-size:30px;
+  text-align: center;
+  background:#ffffff;
+  border: 1px solid black;
+  float:right;
+}

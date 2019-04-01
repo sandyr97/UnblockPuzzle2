@@ -1,6 +1,6 @@
 <html>
 <head>
-
+  <title>Block Bloque</title>
 <!-- custom style sheet -->
 <link rel="stylesheet" href="style.css">
 <!-- Latest compiled and minified CSS -->
@@ -19,14 +19,18 @@
   <div class = "container">
   <div class = "jumbotron">
     <h1>Block Bloque</h1>
-    <h4>Statistics/Leaderboard/info here</h4>
+    <h4>Welcome to the most challenging block puzzle game.</h4>
+    <h4>
+      Enter a username or play as a guest:
+      <input type="text"></input>
+    </h4>
   </div>
 </div>
 
 <div class = "container">
 <div class = "jumbotron">
 
-    <div class = "box" style="" id = "box">
+    <div class = "box" style="float:left;" id = "box">
       <div class = "blockHorizontal" id = "blockHorizontal" style = "float:left;"></div>
       <div class = "blockVertical" id = "blockVertical" style = "float:left;"></div>
       <div class = "blockVertical" id = "blockVertical2" style = "float:left;"></div>
@@ -35,7 +39,7 @@
       <!--script src="https://cdn.jsdelivr.net/npm/planck-js@0.2/dist/planck-with-testbed.js"></script-->
       <!--script src="Physics.js"></script-->
     </div>
-    <table style="margin-top: 45px; font-size:30px; text-align: center; background:#ffffff; border: 1px solid black;">
+    <table cellspacing="10" cellpadding="5">
       <tr style="border: 1px solid black;">
         <th>Username</th>
         <th>High Score</th>
@@ -57,6 +61,7 @@
         <th>10000</th>
       </tr>
     </table>
+    <div style="clear:both;"></div>
   </div>
   </div>
 
