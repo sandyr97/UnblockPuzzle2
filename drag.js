@@ -32,6 +32,7 @@ container.addEventListener("mousemove", drag, false);
 *@return: none.
 */
 function dragStart(e) {
+
 //The object (div) being moved by the user.
 activeObject = document.getElementById(e.srcElement.id);
 //The user is not allowed to move the container.
@@ -108,13 +109,14 @@ gameplay.winCondition(activeBlock);
         console.log("Direction:",CollisionDirection);
 
         if(CollisionDirection.RIGHT){
-          activeObject.xOffset = activeObject.currentX;
-          setTranslate(activeObject.currentX - 5, 0, activeObject);
+            activeObject.xOffset = activeObject.currentX;
+            setTranslate(activeObject.currentX - 15,0 , activeObject);
         }
         else if(CollisionDirection.LEFT){
           activeObject.xOffset = activeObject.currentX;
           setTranslate(activeObject.currentX + 15, 0, activeObject);
         }
+
         dragEnd(e);
         return;
       }
@@ -150,7 +152,7 @@ gameplay.winCondition(activeBlock);
           activeObject.xOffset = activeObject.currentX;
           setTranslate(0, activeObject.currentY - 5, activeObject);
         }
-
+        
         dragEnd(e);
         return;
       }
@@ -168,6 +170,9 @@ function setTranslate(xPos, yPos, el) {
 }
 
 function dragEnd(e) {
+
+
+
   activeObject.initialX = e.clientX - activeObject.currentX;
   activeObject.initialY = e.clientY - activeObject.currentY;
 

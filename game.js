@@ -41,7 +41,10 @@ winCondition(blockToCheck)
 
   hasCollision(blockToCheck, container){
     //initialize all collisions to false.
-    CollisionDirection.RIGHT, CollisionDirection.LEFT, CollisionDirection.BOTTOM, CollisionDirection.TOP = false;
+    CollisionDirection.RIGHT = false;
+    CollisionDirection.LEFT = false;
+    CollisionDirection.BOTTOM = false;
+    CollisionDirection.TOP = false;
     //We must store the iterator that is the object controlled by the user.
     //It is not necessary to check if the object is colliding with itself.
     let exception_i;
@@ -53,7 +56,7 @@ winCondition(blockToCheck)
         exception_i = i;
       }
     }
-
+console.log("collision");
     for(let i = 0; i < this.blockArray.length; i++)
     {
       //Not necessary to check self-collision.
@@ -69,8 +72,8 @@ winCondition(blockToCheck)
               if((blockToCheck.Right_Wall > this.blockArray[i].Left_Wall) && (blockToCheck.Left_Wall <= this.blockArray[i].Left_Wall))
               {
                 CollisionDirection.RIGHT = true;
-              }
 
+              }
               else if(!(blockToCheck.Left_Wall > this.blockArray[i].Right_Wall))
               {
                 CollisionDirection.LEFT = true;
@@ -158,3 +161,21 @@ gameplay.winnerblock.Right_Wall = rect.right;
 gameplay.winnerblock.Left_Wall = rect.left;
 gameplay.winnerblock.Top_Wall = rect.top;
 gameplay.winnerblock.Bottom_Wall = rect.bottom;
+
+let HorizontalArray = $( ".blockHorizontal" );
+let VerticalArray = $(".blockVertical");
+for(let i = 0; i < HorizontalArray.length; i++)
+{
+  let rect = HorizontalArray[i].getBoundingClientRect();
+  let blocki = new block(rect, HorizontalArray[i].id, HorizontalArray[i].className);
+  gameplay.blockArray.push(blocki);
+}
+for(let i = 0; i < VerticalArray.length; i++)
+{
+  let rect = VerticalArray[i].getBoundingClientRect();
+  let blocki = new block(rect, VerticalArray[i].id, VerticalArray[i].className);
+  gameplay.blockArray.push(blocki);
+}
+console.log(HorizontalArray[0]);
+console.log(VerticalArray[0]);
+console.log(VerticalArray[1]);
