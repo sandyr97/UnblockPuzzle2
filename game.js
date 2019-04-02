@@ -27,6 +27,18 @@ class game
   *@param: container: the gameplay area.
   *@return: true if there is a collision, false if not.
   */
+winCondition(blockToCheck)
+{
+
+
+    if(!(blockToCheck.Right_Wall <= gameplay.finishline.Left_Wall ||
+         blockToCheck.Left_Wall >= gameplay.finishline.Right_Wall))
+         {
+           console.log("you win!");
+         }
+
+}
+
   hasCollision(blockToCheck, container){
     //initialize all collisions to false.
     CollisionDirection.RIGHT, CollisionDirection.LEFT, CollisionDirection.BOTTOM, CollisionDirection.TOP = false;
@@ -134,3 +146,15 @@ levelPattern1(blockArray)
 */
 //create the game object.
 let gameplay = new game();
+gameplay.finishline = document.getElementById("finishline");
+gameplay.winnerblock = document.getElementById("winnerblock");
+let rect = gameplay.finishline.getBoundingClientRect();
+gameplay.finishline.Right_Wall = rect.right;
+gameplay.finishline.Left_Wall = rect.left;
+gameplay.finishline.Top_Wall = rect.top;
+gameplay.finishline.Bottom_Wall = rect.bottom;
+rect = gameplay.winnerblock.getBoundingClientRect();
+gameplay.winnerblock.Right_Wall = rect.right;
+gameplay.winnerblock.Left_Wall = rect.left;
+gameplay.winnerblock.Top_Wall = rect.top;
+gameplay.winnerblock.Bottom_Wall = rect.bottom;

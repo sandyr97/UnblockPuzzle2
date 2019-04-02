@@ -88,6 +88,8 @@ function drag(e) {
 
   //thanks to https://stackoverflow.com/questions/442404/retrieve-the-position-x-y-of-an-html-element
 
+gameplay.winCondition(activeBlock);
+
   if (activeHorizontal) {
 
     e.preventDefault();
@@ -111,7 +113,7 @@ function drag(e) {
         }
         else if(CollisionDirection.LEFT){
           activeObject.xOffset = activeObject.currentX;
-          setTranslate(activeObject.currentX + 5, 0, activeObject);
+          setTranslate(activeObject.currentX + 15, 0, activeObject);
         }
         dragEnd(e);
         return;

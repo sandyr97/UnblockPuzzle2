@@ -19,7 +19,14 @@
   border-style: solid;
   border-width: medium;
 }
-
+.finishline{
+  height:10%;;
+  width: 2px;
+  border-style: solid;
+  border-width: medium;
+  border-color: red;
+  background-color: red;
+}
 .center{
   margin:auto;
   padding:40px;
