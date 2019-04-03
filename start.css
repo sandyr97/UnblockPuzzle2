@@ -1,0 +1,41 @@
+h2 {
+	font-size:90px;
+	font-weight:bold;
+	font-family: 'Josefin Sans', sans-serif;
+	padding:40px 0 80px;
+	color: orange;
+	letter-spacing:10px;
+	text-shadow:
+ 4px 4px 0px #fff, 6px 6px 0px rgba(54, 54, 54, 0.5);
+}
+.upper {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+  text-align: center;
+
+}
+.center {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+  text-align: center;
+  line-height: 300px;
+  height: 500px;
+}
+body {
+  background-image: url(block.gif);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+a
+{
+    color: DodgerBlue;
+}
+
+a:hover
+{
+    color: red;
+}
