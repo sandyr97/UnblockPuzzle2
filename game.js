@@ -1,5 +1,23 @@
 
 /*
+* @Desc: Runs when button 'Create New User' is clicked
+* Toggles on button click between showing and hiding
+* the username select field and username text field
+*/
+let isText = false;
+function changeUserInputField(isText){
+  if(isText){
+    // document.getElementById(".user-select").show().prop("disabled", false);
+    // document.getElementById(".user-new-text").hide().prop("disabled", true);
+  }
+  else{
+    // document.getElementById(".user-select").hide().prop("disabled", true);
+    // document.getElementById(".user-new-text").show().prop("disabled", false);
+  }
+  isText = !isText;
+}
+
+/*
 *@Desc: The collision direction object.
 * Whenever there is a collision, this object signals which side
 * of the active object (being drug by the user) has collided

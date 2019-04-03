@@ -21,29 +21,34 @@
     <h1>Block Bloque</h1>
     <h4>Welcome to the most challenging block puzzle game.</h4>
     <h4>
-      <form method="post">
-        Select a Username or play as a guest:
-        <select class="submit" name="username">
-          <?php
-            $mysqli = new mysqli("mysql.eecs.ku.edu", "c803b216", "si3ik4eV", "c803b216");
-            if ($mysqli->connect_error) {
-                printf("Connect failed: %s\n", $mysqli->connect_error);
-                exit();
-            }
-            $query = "SELECT user_id FROM BloqueUsers;";
-            $result = $mysqli->query($query);
+      <form method="post" id = "user-select">
+          Select a Username or play as a guest:
+          <select name="username">
+            <?php
+              $mysqli = new mysqli("mysql.eecs.ku.edu", "c803b216", "si3ik4eV", "c803b216");
+              if ($mysqli->connect_error) {
+                  printf("Connect failed: %s\n", $mysqli->connect_error);
+                  exit();
+              }
+              $query = "SELECT username FROM BlockUsers;";
+              $result = $mysqli->query($query);
 
-            while ($row = $result->fetch_assoc()) {
-              $un = $row['user_id'];
-              echo $un;
-              echo "<option value='$un'>$un</option>";
-            }
-            ?>
-        </select>
-        <button class= "submit btn btn-sm btn-primary">Create New User</button>
-        <input style="display:none;" type="text" id="username" name= "username" disabled=true>
-        <input type="submit" class="btn btn-sm btn-primary">
+              while ($row = $result->fetch_assoc()) {
+                $user = $row['username'];
+                echo $user;
+                echo "<option value='$user'>$user</option>";
+              }
+              Might want to leave this part open until the player is finished playing
+              $mysqli->close();
+              ?>
+          </select>
+          <input type="submit" class="btn btn-sm btn-primary">
       </form>
+      <form action="CreateUser.php" method="post" id = "user-new-text">
+          <input type="text" id= "new_user" name="new_user">
+          <input type="submit" class="btn btn-sm btn-primary">
+      </form>
+      <button onclick="changeUserInputField()" class= "submit btn btn-sm btn-primary">Create New User</button>
     </h4>
   </div>
 </div>
