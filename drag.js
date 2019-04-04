@@ -32,6 +32,7 @@ container.addEventListener("mousemove", drag, false);
 *@return: none.
 */
 function dragStart(e) {
+
 //The object (div) being moved by the user.
 activeObject = document.getElementById(e.srcElement.id);
 //The user is not allowed to move the container.
@@ -88,6 +89,8 @@ function drag(e) {
 
   //thanks to https://stackoverflow.com/questions/442404/retrieve-the-position-x-y-of-an-html-element
 
+gameplay.winCondition(activeBlock);
+
   if (activeHorizontal) {
 
     e.preventDefault();
@@ -106,13 +109,14 @@ function drag(e) {
         console.log("Direction:",CollisionDirection);
 
         if(CollisionDirection.RIGHT){
-          activeObject.xOffset = activeObject.currentX;
-          setTranslate(activeObject.currentX - 5, 0, activeObject);
+            activeObject.xOffset = activeObject.currentX;
+            setTranslate(activeObject.currentX - 15,0 , activeObject);
         }
         else if(CollisionDirection.LEFT){
           activeObject.xOffset = activeObject.currentX;
-          setTranslate(activeObject.currentX + 5, 0, activeObject);
+          setTranslate(activeObject.currentX + 15, 0, activeObject);
         }
+
         dragEnd(e);
         return;
       }
@@ -148,7 +152,7 @@ function drag(e) {
           activeObject.xOffset = activeObject.currentX;
           setTranslate(0, activeObject.currentY - 5, activeObject);
         }
-
+        
         dragEnd(e);
         return;
       }
@@ -166,6 +170,9 @@ function setTranslate(xPos, yPos, el) {
 }
 
 function dragEnd(e) {
+
+
+
   activeObject.initialX = e.clientX - activeObject.currentX;
   activeObject.initialY = e.clientY - activeObject.currentY;
 

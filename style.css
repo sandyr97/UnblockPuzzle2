@@ -19,7 +19,14 @@
   border-style: solid;
   border-width: medium;
 }
-
+.finishline{
+  height:10%;;
+  width: 2px;
+  border-style: solid;
+  border-width: medium;
+  border-color: red;
+  background-color: red;
+}
 .center{
   margin:auto;
   padding:40px;
@@ -40,4 +47,15 @@ table{
   text-align: center;
   background:#ffffff;
   border: 1px solid black;
+}
+
+#effect5 h2 {
+	font-size:90px;
+	font-weight:bold;
+	font-family: 'Josefin Sans', sans-serif;
+	padding:40px 0 80px;
+	color: #353535;
+	letter-spacing:10px;
+	text-shadow:
+ 4px 4px 0px #fff, 6px 6px 0px rgba(54, 54, 54, 0.5);
 }

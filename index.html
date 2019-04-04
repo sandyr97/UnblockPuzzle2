@@ -16,37 +16,61 @@
 
 </head>
 <body>
+  <section id="effect5">
   <div class = "container">
   <div class = "jumbotron">
-    <h1>Block Bloque</h1>
+    <h2>Block Bloque</h2>
     <h4>Welcome to the most challenging block puzzle game.</h4>
-    <h4>
-      <form method="post">
-        Select a Username or play as a guest:
-        <select class="submit" name="username">
-          <?php
-            $mysqli = new mysqli("mysql.eecs.ku.edu", "c803b216", "si3ik4eV", "c803b216");
-            if ($mysqli->connect_error) {
-                printf("Connect failed: %s\n", $mysqli->connect_error);
-                exit();
-            }
-            $query = "SELECT user_id FROM BloqueUsers;";
-            $result = $mysqli->query($query);
+    <br>
+    <p>
+      <a class="btn btn-primary" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Returning Player</a>
+      <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">New Player</button>
+      <!-- <button class="btn btn-primary" type="button" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2">Toggle both elements</button> -->
+    </p>
+    <div class="row">
+      <div class="col d-inline">
+        <div class="collapse multi-collapse" id="multiCollapseExample1">
+          <div class="card card-body">
+            <form method="post" id = "user-select">
+              Select Username:
+              <select name="username">
+                <?php
+                  $mysqli = new mysqli("mysql.eecs.ku.edu", "c803b216", "si3ik4eV", "c803b216");
+                  if ($mysqli->connect_error) {
+                      printf("Connect failed: %s\n", $mysqli->connect_error);
+                      exit();
+                  }
+                  $query = "SELECT username FROM BlockUsers;";
+                  $result = $mysqli->query($query);
 
-            while ($row = $result->fetch_assoc()) {
-              $un = $row['user_id'];
-              echo $un;
-              echo "<option value='$un'>$un</option>";
-            }
-            ?>
-        </select>
-        <button class= "submit btn btn-sm btn-primary">Create New User</button>
-        <input style="display:none;" type="text" id="username" name= "username" disabled=true>
-        <input type="submit" class="btn btn-sm btn-primary">
-      </form>
-    </h4>
+                  while ($row = $result->fetch_assoc()) {
+                    $user = $row['username'];
+                    echo $user;
+                    echo "<option value='$user'>$user</option>";
+                  }
+                  $mysqli->close();
+                  ?>
+              </select>
+              <input type="submit" class="btn btn-sm btn-primary">
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col d-inline">
+        <div class="collapse multi-collapse" id="multiCollapseExample2">
+          <div class="card card-body">
+            <form action="CreateUser.php" method="post" id = "user-new-text">
+                Enter Username:
+                <input type="text" id= "new_user" name="new_user">
+                <input type="submit" class="btn btn-sm btn-primary">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+
 
 <div class = "container">
 <div class = "jumbotron">
@@ -54,9 +78,10 @@
 
 
     <div class = "box" style="float:left;" id = "box">
-      <div class = "blockHorizontal" id = "blockHorizontal" style = "float:left;"></div>
-      <div class = "blockVertical" id = "blockVertical" style = "float:left;"></div>
+      <div class = "blockHorizontal" id = "winnerblock" style = "background-color: red; float:left;"></div>
+      <div class = "blockVertical" id = "blockVertical" style = " float:left;"></div>
       <div class = "blockVertical" id = "blockVertical2" style = "float:left;"></div>
+      <div class = "finishline" id = "finishline" style = "float:right;"></div>
       <!-- a free 2D physics engine! -->
       <!--canvas id = "stage" width = "500" height = "500"-->
       <!--script src="https://cdn.jsdelivr.net/npm/planck-js@0.2/dist/planck-with-testbed.js"></script-->
@@ -64,27 +89,16 @@
     </div>
 
     <div style="float:right;">
+
       <table cellspacing="10" cellpadding="5">
         <tr style="border: 1px solid black;">
           <th>Username</th>
           <th>High Score</th>
         </tr>
-        <tr>
-          <th>Alex</th>
-          <th>30000</th>
-        </tr>
-        <tr>
-          <th>Evan</th>
-          <th>25000</th>
-        </tr>
-        <tr>
-          <th>Sandy</th>
-          <th>27499</th>
-        </tr>
-        <tr>
-          <th>Clay</th>
-          <th>10000</th>
-        </tr>
+          <tr>
+          <td>$user</td>
+          <td>$score</td>
+          </tr>
       </table>
     </div>
     <div style="clear:both;"></div>
