@@ -4,23 +4,23 @@ h2 {
 	font-family: 'Josefin Sans', sans-serif;
 	padding:0px 0 0px;
 	color: orange;
-	letter-spacing:10px;
+	letter-spacing:5px;
 	text-shadow:
- 4px 4px 0px #fff, 6px 6px 0px rgba(54, 54, 54, 0.5);
+ 1px 1px 0px rgba(54, 54, 54, 0.5), 2px 2px 0px #fff;
 }
-.upper {
+ .upper {
   margin: auto;
   width: 50%;
   padding: 10px;
   text-align: center;
-
 }
 .center {
   margin: auto;
   width: 50%;
+  padding-top: 400px;
   padding: 10px;
+  line-height:60px;
   text-align: center;
-  line-height: 300px;
   height: 500px;
 }
 body {
