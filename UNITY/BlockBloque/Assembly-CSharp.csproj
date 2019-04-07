@@ -64,6 +64,7 @@
     <Compile Include="Assets\Scripts\Drag.cs" />
     <Compile Include="Assets\Scripts\MainPage.cs" />
     <Compile Include="Assets\Scripts\Master.cs" />
+    <Compile Include="Assets\Scripts\Timer.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/Evan/Documents/BlockBloque/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
