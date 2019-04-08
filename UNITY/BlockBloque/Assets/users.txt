@@ -1,0 +1,4 @@
+clay,1000
+evan,2000
+Sandy,1000
+Evan,4000
