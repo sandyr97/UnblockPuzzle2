@@ -290,6 +290,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b711e30e74da0b46800d7d7d065ca9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputText: {fileID: 1164485125}
 --- !u!114 &378631022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1011,7 +1012,7 @@ GameObject:
   - component: {fileID: 1164485126}
   - component: {fileID: 1164485125}
   m_Layer: 5
-  m_Name: Text
+  m_Name: input_test
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

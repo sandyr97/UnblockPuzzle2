@@ -65,6 +65,7 @@
     <Compile Include="Assets\Scripts\MainPage.cs" />
     <Compile Include="Assets\Scripts\Master.cs" />
     <Compile Include="Assets\Scripts\NewUser.cs" />
+    <Compile Include="Assets\Scripts\Timer.cs" />
     <None Include="Assets\users.txt" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>/Users/claybeabout/Desktop/Desktop/School/18-19/Spring 2019/EECS 448/Unblock Puzzle/UnblockPuzzle/UNITY/BlockBloque/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
