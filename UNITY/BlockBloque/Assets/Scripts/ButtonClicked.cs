@@ -11,10 +11,10 @@ public class ButtonClicked : MonoBehaviour
     public void ClickHandler()
     {
         GameObject master = GameObject.Find("Master");
-        Debug.Log(inputText.text);
-        StreamWriter writer = new StreamWriter("Assets/users.txt", true);
-        writer.WriteLine(inputText.text);
-        writer.Close();
+        //Debug.Log(inputText.text);
+       // StreamWriter writer = new StreamWriter("Assets/users.txt", true);
+        //writer.WriteLine(inputText.text);
+       // writer.Close();
         master.GetComponent<Master>().changeLevels = true;
     }
     
