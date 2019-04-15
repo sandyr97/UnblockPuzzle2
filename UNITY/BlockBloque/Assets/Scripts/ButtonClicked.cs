@@ -8,13 +8,14 @@ public class ButtonClicked : MonoBehaviour
 {
     public Text inputText;
 
+    /**
+    * Method: ClickHandler()
+    * Params: None
+    * Description: For having "Master" change levels via button click.
+    */
     public void ClickHandler()
     {
         GameObject master = GameObject.Find("Master");
-        //Debug.Log(inputText.text);
-       // StreamWriter writer = new StreamWriter("Assets/users.txt", true);
-        //writer.WriteLine(inputText.text);
-       // writer.Close();
         master.GetComponent<Master>().changeLevels = true;
     }
     

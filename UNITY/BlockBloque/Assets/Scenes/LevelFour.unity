@@ -1757,7 +1757,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2afb273e053c0a44aaf194d58a970cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextLevelName: LandingPage
+  nextLevelName: EndGame
   changeLevels: 0
 --- !u!4 &1203234973
 Transform:

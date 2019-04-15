@@ -7,6 +7,7 @@ Assets/Scenes/LevelOne.unity
 Assets/Scenes/LevelTwo.unity
 Assets/Scenes/LevelThree.unity
 Assets/Scenes/LevelFour.unity
+Assets/Scenes/EndGame.unity
 SceneListEnd?
 7d79327c219eab71e2e44ec35fc0d7f5 Assembly-CSharp.dll:.ButtonClicked
 984dcc0ba3707b7691fbdca8ff508d28 Unity.TextMeshPro.dll:TMPro.TMP_SelectionCaret
@@ -101,7 +102,7 @@ e1bbf0ab858085e38fae6b12ebbdcd35 UnityEngine.Timeline.dll:UnityEngine.Timeline.C
 e1bbf0ab858085e38fae6b12ebbdcd35 UnityEngine.Timeline.dll:UnityEngine.Timeline.GroupTrack
 e1bbf0ab858085e38fae6b12ebbdcd35 UnityEngine.Timeline.dll:UnityEngine.Timeline.PlayableTrack
 201e3fde670b00545944bb3db215c80a UnityEngine.Timeline.dll:UnityEngine.Timeline.TimelineAsset
-e2807d9c0ae84de256bd522279c3c2b6 Assembly-CSharp.dll:.Master
+d914a908faa5b98f594954d7f52c1010 Assembly-CSharp.dll:.Master
 00274a21279f5cb831ce20f895049e38 Unity.TextMeshPro.dll:TMPro.TMP_SubMeshUI
 e6ae40841db498b6e673877ac45ad208 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkAnimator
 71bb6a6b6c8f052f948db64c7dd3ca4f UnityEngine.Networking.dll:UnityEngine.Networking.NetworkBehaviour
@@ -165,4 +166,5 @@ d791aa6007fa3640be1164ea75bb087d Unity.TextMeshPro.dll:TMPro.TMP_StyleSheet
 c6666661329916e218bee7f5e79e60f5 Unity.TextMeshPro.dll:TMPro.TextMeshPro
 3165968ba45c74472d279ba04455fccb Unity.TextMeshPro.dll:TMPro.TMP_ColorGradient
 8649814970b42d345b89944b862453cc Unity.TextMeshPro.dll:TMPro.TMP_SubMesh
-af06650f36543eea8fa64797caab54bb Assembly-CSharp.dll:.WriteFile
+0dc1b2c3430e01396bc7a6accb6151e1 Assembly-CSharp.dll:.WriteFile
+9793dfd6dd663aceb2776b300a3f015b Assembly-CSharp.dll:.PauseMenu

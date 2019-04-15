@@ -65,6 +65,7 @@
     <Compile Include="Assets\Scripts\MainPage.cs" />
     <Compile Include="Assets\Scripts\Master.cs" />
     <Compile Include="Assets\Scripts\NewUser.cs" />
+    <Compile Include="Assets\Scripts\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\Timer.cs" />
     <Compile Include="Assets\Scripts\WriteFile.cs" />
     <None Include="Assets\users.txt" />

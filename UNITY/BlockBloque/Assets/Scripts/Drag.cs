@@ -5,13 +5,18 @@ using UnityEngine;
 public class Drag : MonoBehaviour
 {
 
-    private bool selected;
-    private bool isLastSelected;
+    private bool selected; /*<Is this block currently selected?>*/
+    private bool isLastSelected; /*<Was this block last selected?>*/
 
-    public bool isWinner = false;
-    public string blockid = "horizontal";
-    public string blockidcopy = "horizontal";
+    public bool isWinner = false; /*<Is this block one of the red "winner" blocks?>*/
+    public string blockid = "horizontal"; /*<The blockid. Denotes which axis the block may slide on (if it may slide at all).>*/
+    public string blockidcopy = "horizontal"; /*<A copy of blockid. May be set differently for unusual block behavior.>*/
 
+    /**
+     * Method: FixedUpdate()
+     * Params: None
+     * Description: if block is selected and may move, move it with the user mouse along the appropriate axis.
+     */
     void FixedUpdate()
     {
         if (selected == true && blockid == "horizontal")
@@ -33,6 +38,11 @@ public class Drag : MonoBehaviour
         }
     }
 
+    /**
+    * Method: OnMouseOver()
+    * Params: None
+    * Description: if the user clicks a block and it may move, set it as selected and last selected.
+    */
     void OnMouseOver()
     {
         
@@ -43,9 +53,13 @@ public class Drag : MonoBehaviour
         }
     }
 
+    /**
+    * Method: OnTriggerEnter()
+    * Params: coll , the collider box of the box the selected box collided with.
+    * Description: if the collided box and the selected box are both "winner" boxes, tell "Master" to change levels.
+    */
     private void OnTriggerEnter(Collider coll)
     {
-        //Debug.Log("Collision Detected!");
 
         if (this.gameObject.GetComponent<Drag>().isWinner && coll.gameObject.GetComponent<Drag>().isWinner)
         {
@@ -54,8 +68,15 @@ public class Drag : MonoBehaviour
             master.GetComponent<Master>().changeLevels = true;
         }
         
-        //selected = false;
+     
     }
+
+    /**
+    * Method: OnTriggerStay()
+    * Params: coll , the collider box of the box the selected box collided with.
+    * Description: While remaining in a collision, move the selected box away from the box it collided with.
+    *              Also, lock motion so the user cannot force the block through.
+    */
     private void OnTriggerStay(Collider coll)
     {   if(this.gameObject.GetComponent<Drag>().blockid != "NO")
         {
@@ -96,6 +117,11 @@ public class Drag : MonoBehaviour
         selected = false;
     }
 
+    /**
+    * Method: OnTriggerExit()
+    * Params: coll , the collider box of the box the selected box collided with.
+    * Description: After resolving a collision, set everything back to normal.
+    */
     private void OnTriggerExit(Collider other)
     {
         isLastSelected = false;
