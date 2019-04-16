@@ -13,7 +13,7 @@ public class Master : MonoBehaviour
     public GameObject pause_canvas;
 
     private GameObject WriteFileObject;
-    private bool is_paused = false;
+    public bool is_paused = false;
 
     // Use this for initialization
     void Start()
