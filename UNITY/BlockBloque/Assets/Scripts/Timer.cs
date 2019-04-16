@@ -11,6 +11,12 @@ public class Timer : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        //No duplicate objects from reloading a scene.
+        if(FindObjectsOfType(GetType()).Length > 1)
+        {
+            GameObject toDelete = GameObject.Find("timer_controller");
+            Destroy(toDelete);
+        }
         //To ensure that the object holding the script is not destroyed between levels.
         DontDestroyOnLoad(this.gameObject);
     }

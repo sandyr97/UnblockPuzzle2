@@ -8,6 +8,7 @@ Assets/Scenes/LevelTwo.unity
 Assets/Scenes/LevelThree.unity
 Assets/Scenes/LevelFour.unity
 Assets/Scenes/EndGame.unity
+Assets/Scenes/TestSuite.unity
 SceneListEnd?
 7d79327c219eab71e2e44ec35fc0d7f5 Assembly-CSharp.dll:.ButtonClicked
 984dcc0ba3707b7691fbdca8ff508d28 Unity.TextMeshPro.dll:TMPro.TMP_SelectionCaret
