@@ -22,8 +22,17 @@ public class WriteFile : MonoBehaviour
         // WriteString(user_name_entry.text);
         //Store it in the WriteFile game object so we have it for future reference.
         user_name = user_name_entry.text;
+        //if you dont want a user name, you get assigned user.
+        if(user_name == "")
+        {
+            user_name = "User";
+        }
     }
 
+    public void WriteUserHighScore(int place)
+    {
+
+    }
 
     public void WriteString(string string_to_write)
     {
