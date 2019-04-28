@@ -52,18 +52,4 @@ public class Master : MonoBehaviour
             Debug.Log("They want to pause!");
         }
     }
-
-    
-        public void GoToLevel(string new_level)
-        {
-            if (new_level == "LandingPage")
-            {
-                //block_tango.Stop();
-                //also destroy the Write&Sound object.
-                GameObject ws = GameObject.Find("Write&Sound");
-                Destroy(ws);
-            }
-            SceneManager.LoadScene(new_level, LoadSceneMode.Single);
-        }
-    
 }

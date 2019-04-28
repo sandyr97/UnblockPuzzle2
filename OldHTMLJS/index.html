@@ -1,0 +1,71 @@
+<html>
+<head>
+  <title>Block Bloque</title>
+<!-- custom style sheet -->
+<link rel="stylesheet" href="style.css">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
+
+</head>
+<body>
+  <section id="effect5">
+  <div class = "container">
+  <div class = "jumbotron">
+    <h2>Block Bloque</h2>
+    <h4>Welcome to the most challenging block puzzle game.</h4>
+    <br>
+  </div>
+</div>
+
+
+<div class = "container">
+<div class = "jumbotron">
+  <h2>Level 1</h2>
+
+
+    <div class = "box" style="float:left;" id = "box">
+      <div class = "blockHorizontal" id = "winnerblock" style = "background-color: red; float:left;"></div>
+      <div class = "blockVertical" id = "blockVertical" style = " float:left;"></div>
+      <div class = "blockVertical" id = "blockVertical2" style = "float:left;"></div>
+      <div class = "finishline" id = "finishline" style = "float:right;"></div>
+      <!-- a free 2D physics engine! -->
+      <!--canvas id = "stage" width = "500" height = "500"-->
+      <!--script src="https://cdn.jsdelivr.net/npm/planck-js@0.2/dist/planck-with-testbed.js"></script-->
+      <!--script src="Physics.js"></script-->
+    </div>
+
+    <div style="float:right;">
+
+      <table cellspacing="10" cellpadding="5">
+        <tr style="border: 1px solid black;">
+          <th>Username</th>
+          <th>High Score</th>
+        </tr>
+          <tr>
+          <td>$user</td>
+          <td>$score</td>
+          </tr>
+      </table>
+    </div>
+    <div style="clear:both;"></div>
+</div>
+</div>
+
+
+    <!-- the "block" class -->
+    <script src="block.js"></script>
+    <!-- the "game" class -->
+    <script src="game.js"></script>
+    <!-- drag functionality -->
+  <script src="drag.js"></script>
+
+</body>
+</html>

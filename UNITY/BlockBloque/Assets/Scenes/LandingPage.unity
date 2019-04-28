@@ -2886,7 +2886,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   user_name: 
-  Path: users.txt
+  Path: Assets/users.txt
   blockTango: {fileID: 1960802971}
   user_name_entry: {fileID: 551234469}
 --- !u!4 &1913868668

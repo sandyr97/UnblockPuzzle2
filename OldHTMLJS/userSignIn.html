@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+  	<link rel="stylesheet" href="userSignIn.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	</head>
+<body>
+  <audio autoplay loop id="mySong">
+      <source src="game.mp3">
+  </audio>
+  <container class="center">
+    <h2 class="upper" style="font-size:50px;color:#F5FE6C;">Sign In or Continue as Guest</h2>
+    <p>
+      <button class="btn btn-light" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Returning Player</button>
+      <button class="btn btn-light" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">New Player</button>
+      <!-- <button class="btn btn-primary" type="button" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2">Toggle both elements</button> -->
+    </p>
+    <div class="row">
+      <div class="col d-inline">
+        <div class="collapse multi-collapse" id="multiCollapseExample1">
+          <div class="card card-body">
+            <form method="post" id = "user-select">
+              <h2 style="color:#3AF033;">Select Username:</h2>
+              <select name="username">
+                <?php
+                  $mysqli = new mysqli("mysql.eecs.ku.edu", "c803b216", "si3ik4eV", "c803b216");
+                  if ($mysqli->connect_error) {
+                      printf("Connect failed: %s\n", $mysqli->connect_error);
+                      exit();
+                  }
+                  $query = "SELECT username FROM BlockUsers;";
+                  $result = $mysqli->query($query);
+
+                  while ($row = $result->fetch_assoc()) {
+                    $user = $row['username'];
+                    echo $user;
+                    echo "<option value='$user'>$user</option>";
+                  }
+                  $mysqli->close();
+                ?>
+              </select>
+              <input type="submit" class="btn btn-sm btn-light">
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col d-inline">
+        <div class="collapse multi-collapse" id="multiCollapseExample2">
+          <div class="card card-body">
+            <form method="post" id = "user-new-text" style="line-height:10px;">
+                <h2 style="color:#3AF033;">Enter Username:</h2>
+                <input type="text" id= "new_user" name="new_user">
+                <input type="submit" class="btn btn-sm btn-light">
+            </form>
+            <?php
+              $mysqli = new mysqli("mysql.eecs.ku.edu", "c803b216", "si3ik4eV", "c803b216");
+              if ($mysqli->connect_error) {
+                die("Connection failed: " . $mysqli->connect_error);
+                printf("Connect failed: %s\n", $mysqli->connect_error);
+                exit();
+              }
+              $username = $_POST["new_user"];
+              $query = "INSERT INTO BlockUsers (username) VALUES ('$username');";
+              if ($result = $mysqli->query($query)) {
+                $result->free();
+              }
+              else{
+                echo "<p>Error: " . $mysqli . "<br>" . $mysqli->error;
+              }
+              $mysqli->close();
+            ?>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h2> <a style="font-size:50px; text-decoration:none;" href="x.html">PLAY</a> </h2>
+  </container>
+	</body>
+</html>
