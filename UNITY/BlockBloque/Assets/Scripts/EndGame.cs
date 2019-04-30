@@ -8,7 +8,11 @@ public class EndGame : MonoBehaviour
     
     private string final_time;
     private string score_file_as_string;
-    // Start is called before the first frame update
+    /**
+    * Method: Start()
+    * Params: None.
+    * Description: Renders the leaderboard, updates it if necessary.
+    */
     void Start()
     {
         GameObject timer_controller = GameObject.Find("timer_controller");

@@ -15,7 +15,11 @@ public class Master : MonoBehaviour
     private GameObject WriteFileObject;
     public bool is_paused = false;
 
-    // Use this for initialization
+    /**
+    * Method: Start()
+    * Params: None.
+    * Description: If the level has a place to display the user's name, this method does it.
+    */
     void Start()
     {
         if(nextLevelName != "LevelOne")
@@ -27,8 +31,12 @@ public class Master : MonoBehaviour
         }
 
     }
-    
-    // Update is called once per frame
+
+    /**
+    * Method: Update()
+    * Params: None.
+    * Description: Once per frame this method checks if the user has won the level or pressed pause, then acts accordingly.
+    */
     void Update()
     {
         if (changeLevels)
@@ -53,8 +61,12 @@ public class Master : MonoBehaviour
         }
     }
 
-    
-        public void GoToLevel(string new_level)
+    /**
+    * Method: GoToLevel()
+    * Params: new_level: A string that is the name of the level to go to.
+    * Description: Changes levels.
+    */
+    public void GoToLevel(string new_level)
         {
             if (new_level == "LandingPage")
             {

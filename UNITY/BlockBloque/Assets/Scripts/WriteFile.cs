@@ -14,6 +14,12 @@ public class WriteFile : MonoBehaviour
 
     private bool block_tango_on = false;
 
+
+    /**
+    * Method: ObtainUserWriteString()
+    * Params: None.
+    * Description: Logs the user's username for writing to file later.
+    */
     public void ObtainUserWriteString()
     {
         // Get user name from text field at game start.
@@ -34,6 +40,11 @@ public class WriteFile : MonoBehaviour
 
     }
 
+    /**
+    * Method: WriteString()
+    * Params: string_to_write: The string to write to file.
+    * Description: Writes a string to file.
+    */
     public void WriteString(string string_to_write)
     {
         StreamWriter writer = new StreamWriter(Path, true);
@@ -42,6 +53,12 @@ public class WriteFile : MonoBehaviour
        // AssetDatabase.ImportAsset(Path);
        
     }
+
+    /**
+    * Method: ReadFile()
+    * Params: None.
+    * Description: Returns file contents as string.
+    */
     public string ReadFile()
     {
         StreamReader reader = new StreamReader(Path);
@@ -49,7 +66,11 @@ public class WriteFile : MonoBehaviour
 
     }
 
-    // Use this for initialization
+    /**
+    * Method: Start()
+    * Params: None.
+    * Description: Dont destroy and play blocktango.
+    */
     void Start()
     {
         DontDestroyOnLoad(this.gameObject); //Whatever has this script will not be destroyed when levels change.

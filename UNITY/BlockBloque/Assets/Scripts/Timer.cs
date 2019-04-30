@@ -8,7 +8,11 @@ public class Timer : MonoBehaviour
     public string time; /*<The time to display on the game UI>*/
     private float current = 0.0f; /*<The current time according to the Time class>*/
 
-    // Use this for initialization
+    /**
+    * Method: Start()
+    * Params: None.
+    * Description: Create a timer, if there already is one, delete it.
+    */
     void Start()
     {
         //No duplicate objects from reloading a scene.
@@ -21,8 +25,11 @@ public class Timer : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
     }
 
-    // Update is called once per frame
-    //Iterate time, display it in any text box available named "time".
+    /**
+    * Method: Update()
+    * Params: None.
+    * Description: Once per frame iterate time and display it on any textbox named "time".
+    */
     void Update()
     {
 

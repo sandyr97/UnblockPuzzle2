@@ -12,6 +12,11 @@ public class PauseMenu : MonoBehaviour
     public AudioSource block_tango;
     public Slider volume_handler;
 
+    /**
+    * Method: Start()
+    * Params: None.
+    * Description: Attempts to acquire the Audio Source object.
+    */
     void Start()
     {
         if(GameObject.Find("Audio Source"))
@@ -20,11 +25,21 @@ public class PauseMenu : MonoBehaviour
             block_tango = write.GetComponent<AudioSource>();
         }
     }
+    /**
+    * Method: Update()
+    * Params: None.
+    * Description: Once per frame, the audio volume is set to match the volume slider.
+    */
     void Update()
     {
         block_tango.volume = volume_handler.value;
     }
 
+    /**
+    * Method: GoToLevel()
+    * Params: new_level: a string that is the name of the new level.
+    * Description: Changes levels.
+    */
     public void GoToLevel(string new_level)
    {
         if (new_level == "LandingPage")
@@ -36,15 +51,30 @@ public class PauseMenu : MonoBehaviour
         }
         SceneManager.LoadScene(new_level, LoadSceneMode.Single);
     }
-   public void ResetLevel()
+      /**
+      * Method: ResetLevel()
+      * Params: None.
+      * Description: Restarts the current level.
+      */
+    public void ResetLevel()
    {
       
         GoToLevel(current_level_name);
    }
-   public void QuitGame()
+    /**
+    * Method: QuitGame()
+    * Params: None.
+    * Description: Closes the application.
+    */
+    public void QuitGame()
    {
        Application.Quit();
    }
+    /**
+    * Method:Resume()
+    * Params: None.
+    * Description: Closes the pause menu.
+    */
     public void Resume()
     {
         GameObject master = GameObject.Find("Master");
