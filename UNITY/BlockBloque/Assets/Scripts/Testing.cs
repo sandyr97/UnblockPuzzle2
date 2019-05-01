@@ -36,7 +36,7 @@ public class Testing : MonoBehaviour
         string str1 = "Test 1. Master GameObject acquirable: ";
         string str2 = "Test 2. Write&Sound GameObject acquirable: ";
         string str3 = "Test 3. Audio Source GameObject acquirable: ";
-        string str4 = "Test 5. Users file is accessible: ";
+        string str4 = "Test 4. Users file is accessible: ";
         string str6 = "";
 
         if(Test_isPresent_Master())
