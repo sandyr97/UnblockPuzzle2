@@ -1,6 +1,6 @@
 Win
 PlayerPath?
-C:/Users/Evan/Desktop/BlockBlock/UnblockPuzzle2/PLAY/BlockBloque.exe
+C:/Users/Evan/Desktop/fuck/UnblockPuzzle2/PLAY/BlockBloque.exe
 SceneListBegin?
 Assets/Scenes/LandingPage.unity
 Assets/Scenes/LevelOne.unity
